@@ -1,0 +1,8 @@
+{
+  "label": "Gateway",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Initial configuration before starting the application."
+  }
+}

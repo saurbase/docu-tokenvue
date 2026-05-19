@@ -1,0 +1,125 @@
+---
+title: Getting Started
+description: Learn what TokenVue is, why it exists, and how it helps organizations manage AI infrastructure across multiple providers and models.
+sidebar_position: 2
+---
+
+
+# Getting Started with TokenVue
+
+TokenVue helps you manage LLM access through secure virtual keys, provider configuration, guardrails, routing, and usage monitoring.
+
+This guide walks you through the basic setup.
+
+## 1. Sign in to TokenVue
+
+Open TokenVue and sign in to your workspace.
+
+After login, you will land inside the TokenVue dashboard, where you can view usage, active keys, provider activity, guardrail events, and workspace-level insights.
+
+## 2. Create or Select a Workspace
+
+A workspace is where your team manages LLM access.
+
+Inside a workspace, you can manage:
+
+- Virtual keys
+- LLM provider configurations
+- Guardrails
+- Usage logs
+- Billing visibility
+- Team access
+
+Select an existing workspace or create a new one before configuring your gateway.
+
+## 3. Configure an LLM Provider
+
+Go to **LLM Config** and add the provider you want TokenVue to route requests to.
+
+You can configure details such as:
+
+- Provider name
+- API key
+- Base URL, if using an OpenAI-compatible provider
+- Model name
+- Budget mode
+- Token or request limits
+
+TokenVue uses this configuration when routing requests through the gateway.
+
+## 4. Create a Virtual Key
+
+Go to **Virtual Key** and create a new gateway key.
+
+A virtual key is the key your application uses instead of directly using the provider API key.
+
+Virtual keys let you control:
+
+- Which model or provider is used
+- Monthly or daily limits
+- Token-based limits
+- Guardrail behavior
+- Service ownership
+- Usage tracking
+
+After creating a key, TokenVue will generate an OpenAI-compatible API key.
+
+## 5. Connect Your Application
+
+Use the TokenVue gateway as an OpenAI-compatible API endpoint.
+
+```bash
+curl -X POST "https://your-tokenvue-domain.com/v1/chat/completions" \
+  -H "Authorization: Bearer sk-tg-live-..." \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "configured-model",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hello from TokenVue"
+      }
+    ]
+  }'
+
+  ```
+
+  For local development, the base URL may look like this:
+
+http://localhost:3000/v1
+
+## 6. Enable Guardrails
+Go to Guardrails to manage workspace-level protections.
+
+TokenVue supports guardrails such as:
+
+- Hard budget caps
+- PII scrubbing
+- Toxicity filtering
+- Prompt injection detection
+- Keyword blocking
+These guardrails help protect your workspace before requests are sent to an LLM provider.
+
+## 7. Review Logs and Insights
+After traffic starts flowing through TokenVue, use Audit Logs, Breaches, and Insights to review activity.
+
+You can monitor:
+
+- Token usage
+- Request status
+- Provider latency
+- Model routing behavior
+- Blocked requests
+- Failed requests
+- Security-related events
+
+Next Steps
+Once your first virtual key is working, you can continue by:
+
+Adding more provider configurations
+Creating separate keys for different services
+Setting token or budget limits
+Enabling Auto Router
+Inviting team members
+Reviewing usage and optimization insights
+TokenVue is now ready to manage and monitor your LLM gateway traffic.

@@ -1,0 +1,153 @@
+---
+
+title: What is TokenVue?
+description: Learn what TokenVue is, why it exists, and how it helps organizations manage AI infrastructure across multiple providers and models.
+sidebar_position: 1
+-------------------
+
+# What is TokenVue?
+
+TokenVue is an AI Gateway and Infrastructure Control Platform that helps developers and organizations securely manage, route, monitor, and optimize AI traffic across multiple Large Language Model (LLM) providers and environments.
+
+It acts as a unified control layer between applications and AI providers such as OpenAI, Anthropic, Gemini, DeepSeek, and open-source/self-hosted models.
+
+---
+
+## Why TokenVue Exists
+
+Modern AI applications are becoming increasingly complex.
+
+Teams often rely on:
+
+* Multiple AI providers
+* Different LLM models
+* Open-source inference servers
+* Hybrid AI infrastructure
+* Custom routing logic
+* Manual failover systems
+
+This creates major challenges around:
+
+* Reliability
+* Security
+* Observability
+* Governance
+* Cost optimization
+* Vendor lock-in
+
+TokenVue simplifies this complexity by providing one centralized platform to control and orchestrate AI traffic at production scale.
+
+---
+
+## Core Capabilities
+
+### Virtual API Keys
+
+Create secure virtual keys with:
+
+* Budget controls
+* Usage tracking
+* Model permissions
+* Team-level governance
+* Request monitoring
+
+---
+
+### Multi-LLM Routing
+
+Route requests across:
+
+* OpenAI
+* Anthropic
+* Gemini
+* DeepSeek
+* Ollama
+* vLLM
+* Self-hosted LLMs
+
+using one unified API layer.
+
+---
+
+### Auto Router
+
+Automatically route traffic based on:
+
+* Budget usage
+* Latency
+* Provider health
+* GPU capacity
+* Error rates
+* Region availability
+
+---
+
+### AI Guardrails & Security
+
+Protect AI workloads with:
+
+* PII redaction
+* Prompt injection protection
+* Toxicity filtering
+* Audit logs
+* Policy enforcement
+
+---
+
+### Analytics & Observability
+
+Monitor:
+
+* Token usage
+* AI spend
+* Latency
+* Provider performance
+* Routing activity
+* Security events
+
+in real time.
+
+---
+
+## OpenAI-Compatible API
+
+TokenVue provides an OpenAI-compatible API layer, allowing developers to use existing OpenAI SDKs and workflows with minimal code changes.
+
+```ts
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.TOKENVUE_API_KEY,
+  baseURL: "https://api.tokenvue.ai/v1",
+});
+```
+
+---
+
+## Built for Production AI
+
+TokenVue is designed for:
+
+* AI startups
+* SaaS applications
+* Enterprise AI platforms
+* AI agents & copilots
+* Internal AI infrastructure teams
+* Hybrid AI deployments
+
+Whether you're building customer-facing AI products or internal AI systems, TokenVue provides the infrastructure layer needed to operate AI securely and reliably at scale.
+
+---
+
+## Vision
+
+TokenVue aims to become the control plane for production AI infrastructure — enabling organizations to securely orchestrate AI traffic across every provider, model, and environment from one unified platform.
+
+---
+
+## Next Steps
+
+* [Getting Started](./getting-started)
+* [Virtual API Keys](./virtual-keys/overview)
+* [Auto Router](./auto-router/overview)
+* [API Reference](./api-reference/overview)

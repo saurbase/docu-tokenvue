@@ -1,0 +1,116 @@
+---
+title: LLM Config
+sidebar_position: 1
+
+---
+
+
+
+# LLM Config
+
+LLM Config is where you connect TokenVue to the AI providers and models your workspace wants to use.
+
+A configuration tells TokenVue which provider to call, which model to use, and how that model should be controlled for cost, limits, and gateway routing.
+
+## What LLM Config Is Used For
+
+TokenVue does not require your application to call provider APIs directly. Instead, your app sends requests to a TokenVue virtual key, and TokenVue uses the selected LLM configuration to route the request to the correct provider.
+
+LLM Config is used to manage:
+
+- Provider connection details
+- Provider API keys
+- Model names
+- OpenAI-compatible base URLs
+- Budget mode
+- Token or request limits
+- Free model behavior
+- Connection testing
+
+## How It Works
+
+An LLM configuration sits between a virtual key and an AI provider.
+
+```txt
+Application
+  -> TokenVue Virtual Key
+  -> LLM Config
+  -> Provider Model
+```
+
+When a request reaches TokenVue, the gateway checks the virtual key, resolves the linked LLM configuration, applies guardrails and limits, then forwards the request to the configured provider.
+
+## Supported Provider Types
+
+TokenVue can be configured with providers such as:
+
+- OpenAI
+- OpenRouter
+- Anthropic
+- Google
+- Mistral
+- Cohere
+- OpenAI-compatible APIs
+
+For OpenAI-compatible providers, you can provide a custom base URL so TokenVue can route requests to any compatible endpoint.
+
+## Important Fields
+
+| Field | Description |
+| --- | --- |
+| Provider | The LLM provider TokenVue should use. |
+| API Key | The provider API key used by TokenVue on the server side. |
+| Base URL | Required for custom OpenAI-compatible providers. |
+| Model Name | The model TokenVue should call for this configuration. |
+| Budget Mode | Defines how usage should be controlled. |
+| Limits | Optional daily, monthly, token, or request limits. |
+
+## Budget Modes
+
+LLM Config supports different budget behaviors depending on how the model should be managed.
+
+### Currency Budget
+
+Use this when the model has cost-based limits and you want to track or restrict usage by spend.
+
+### Free Model
+
+Use this when the model should be treated as free or should not count against normal paid usage behavior.
+
+### Token Rate Limit
+
+Use this when usage should be controlled by token or request volume instead of currency.
+
+## Testing a Configuration
+
+Before using an LLM configuration in production, test the connection from TokenVue.
+
+Testing helps confirm that:
+
+- The provider API key is valid
+- The model name is correct
+- The base URL works, if provided
+- TokenVue can reach the provider
+- The configured model can return a response
+
+## Using LLM Config with Virtual Keys
+
+After creating an LLM configuration, connect it to a virtual key.
+
+The virtual key becomes the application-facing key, while the LLM configuration stays inside TokenVue as the provider-facing setup.
+
+This keeps provider credentials out of application code and gives your team centralized control over routing, limits, and monitoring.
+
+## Best Practices
+
+- Create separate LLM configurations for different providers or model types.
+- Use clear names so teams know which model each configuration represents.
+- Test every configuration before assigning it to a virtual key.
+- Use budget or token limits for production workloads.
+- Keep provider API keys managed inside TokenVue instead of exposing them in client applications.
+
+## In Short
+
+LLM Config is the provider setup layer in TokenVue.
+
+It defines where AI requests go, which model handles them, and how TokenVue should control usage before the request reaches the provider.
