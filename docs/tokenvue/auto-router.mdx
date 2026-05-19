@@ -1,7 +1,7 @@
 ---
 title: Auto Router
+description: Define routing policies, fallback chains, retry behavior, and circuit breaker settings for LLM traffic.
 sidebar_position: 4
-
 ---
 
 
@@ -11,7 +11,6 @@ Auto Router helps TokenVue decide where LLM traffic should go when conditions ch
 
 It lets teams create routing policies across configured providers, models, and virtual keys. This is useful when a model reaches a budget limit, a provider becomes unavailable, latency increases, or traffic needs to move through a fallback path.
 
-{/* Image placeholder: Auto Router overview */}
 ![Auto Router Overview](/img/docs/ar-1.png)
 
 ## What Auto Router Does
@@ -43,7 +42,6 @@ Application
   -> Provider
 ```
 
-{/* Image placeholder: Auto Router request flow */}
 ![Auto Router Request Flow](/img/docs/ar-2.png)
 
 ## Routing Policy
@@ -104,7 +102,6 @@ A fallback step can include:
 - Maximum retries
 - Priority order
 
-{/* Image placeholder: Auto Router fallback chain */}
 ![Auto Router Fallback Chain](/img/docs/ar-3.png)
 
 ## Retry Policy

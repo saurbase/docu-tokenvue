@@ -1,23 +1,128 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 4.5rem 0 3.5rem;
   position: relative;
+  overflow: hidden;
+  background: var(--tokenvue-hero-bg);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.heroCopy {
+  max-width: 620px;
+}
+
+.eyebrow {
+  color: var(--ifm-color-primary);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  color: var(--ifm-heading-color);
+  font-size: clamp(2.6rem, 6vw, 4.8rem);
+  line-height: 0.96;
+  margin: 0;
+}
+
+.heroSubtitle {
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  margin: 1.4rem 0 1.8rem;
+  max-width: 540px;
+}
+
+.heroVisual {
+  background: var(--tokenvue-panel-bg);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  box-shadow: var(--tokenvue-shadow);
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroVisual img {
+  display: block;
+  width: 100%;
 }
 
 .buttons {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.docPaths {
+  background: var(--ifm-background-color);
+  padding: 3.5rem 0 4.25rem;
+}
+
+.pathGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.35rem;
+}
+
+.pathCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  color: var(--ifm-font-color-base);
+  display: block;
+  padding: 1.2rem;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.pathCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--tokenvue-shadow);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.pathCard span {
+  color: var(--ifm-heading-color);
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.pathCard p {
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .heroGrid,
+  .pathGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: 2.65rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .buttons :global(.button) {
+    width: 100%;
+  }
 }

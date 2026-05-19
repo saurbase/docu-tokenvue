@@ -3,6 +3,6 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Initial configuration before starting the application."
+    "description": "Configure provider connections, virtual keys, guardrails, and routing policies."
   }
 }

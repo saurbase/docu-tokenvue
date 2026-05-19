@@ -1,7 +1,7 @@
 ---
-title: Virtual Key
+title: Virtual Keys
+description: Create application-facing gateway keys that route traffic through TokenVue without exposing provider credentials.
 sidebar_position: 2
-
 ---
 
 # Virtual Key
@@ -10,7 +10,6 @@ A Virtual Key is the application-facing API key used to send LLM requests throug
 
 Instead of placing provider API keys directly inside your application, you create a TokenVue Virtual Key and use it as the gateway key. TokenVue then routes the request to the configured LLM provider, applies limits and guardrails, and records usage for monitoring.
 
-{/* Image placeholder: Virtual Key overview diagram */}
 ![Virtual Key Overview](/img/docs/vk-1.png)
 
 ## What a Virtual Key Does
@@ -41,8 +40,6 @@ Application
 
 When your application sends a request, TokenVue validates the Virtual Key, checks its rules, applies guardrails, and forwards the request to the configured provider.
 
-
-
 ## Creating a Virtual Key
 
 To create a Virtual Key, go to **Virtual Key** in the TokenVue dashboard and choose the LLM configuration the key should use.
@@ -60,12 +57,8 @@ A Virtual Key usually includes:
 | Guardrails | Safety and policy controls applied to requests. |
 | Status | Whether the key is active or paused. |
 
+![Virtual Key Configuration](/img/docs/vk-2.png)
 
-{/* Image placeholder: Request flow from app to provider */}
-![Virtual Key Request Flow](/img/docs/vk-2.png)
-
-
-{/* Image placeholder: Request flow from app to provider */}
 ![Virtual Key Request Flow](/img/docs/vk-3.png)
 
 ## Using a Virtual Key
@@ -101,7 +94,6 @@ Virtual Keys can use workspace guardrails and key-level settings.
 
 Guardrails help control what traffic is allowed before it reaches the provider. TokenVue can block or modify requests based on rules such as budget caps, PII handling, toxicity checks, prompt injection detection, and keyword blocking.
 
-{/* Image placeholder: Virtual Key guardrail settings */}
 ![Virtual Key Guardrails](/img/docs/vk-4.png)
 
 ## Usage Tracking

@@ -1,58 +1,71 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
+import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  image: string;
+  href: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Virtual Keys',
+    href: '/docs/tokenvue/virtual-key',
+    image: '/img/docs/vk-1.png',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Issue application-facing keys that hide provider credentials, enforce
+        usage limits, and keep every request visible.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Guardrails',
+    href: '/docs/tokenvue/guardrail',
+    image: '/img/docs/gd-1.png',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Apply budget, PII, toxicity, injection, and keyword controls before
+        requests reach an LLM provider.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Auto Router',
+    href: '/docs/tokenvue/auto-router',
+    image: '/img/docs/ar-1.png',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Move traffic across providers and fallback routes when budgets,
+        latency, quotas, or availability change.
+      </>
+    ),
+  },
+  {
+    title: 'Insights',
+    href: '/docs/connect/insights',
+    image: '/img/docs/in-1.png',
+    description: (
+      <>
+        Monitor token volume, estimated spend, provider performance, latency,
+        service hotspots, and guardrail activity.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, image, href, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
+    <Link className={styles.featureCard} to={href}>
+      <img className={styles.featureImage} src={image} alt={`${title} screen`} />
+      <div className={styles.featureBody}>
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -60,7 +73,14 @@ export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">
-        <div className="row">
+        <div className={styles.sectionHeader}>
+          <Heading as="h2">Core Workflows</Heading>
+          <p>
+            TokenVue documentation is organized around the gateway setup,
+            policy controls, operating views, and team management screens.
+          </p>
+        </div>
+        <div className={styles.featureGrid}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}

@@ -1,7 +1,7 @@
 ---
 title: Token Calculator
+description: Estimate model usage cost from input tokens, output tokens, request volume, and public model pricing.
 sidebar_position: 3
-
 ---
 
 
@@ -11,7 +11,6 @@ The Token Calculator helps estimate model usage cost before sending traffic thro
 
 It uses public model pricing data, input token counts, output token counts, and request volume to estimate per-request cost, batch cost, and projected monthly cost.
 
-{/* Image placeholder: Token Calculator overview */}
 ![Token Calculator Overview](/img/docs/tc-1.png)
 
 ## What the Token Calculator Does
@@ -63,7 +62,6 @@ TokenVue displays the calculated result in several views:
 - **30-day projection**: Estimated cost if the same batch runs daily
 - **Context use**: How much of the model context window the request may use
 
-{/* Image placeholder: Token Calculator metrics */}
 ![Token Calculator Metrics](/img/docs/tc-2.png)
 
 ## Sample Prompts
@@ -74,8 +72,6 @@ The calculator includes sample profiles to quickly estimate common workloads, su
 - RAG answers
 - Batch summaries
 
-
-{/* Image placeholder: Token Calculator Sample */}
 ![Token Calculator Sample](/img/docs/tc-4.png)
 
 You can also enter your own sample input and sample output. TokenVue estimates token counts from the sample text and lets you apply those estimates to the calculator.
@@ -86,7 +82,6 @@ TokenVue compares the current token mix against available paid models and shows 
 
 This helps teams quickly see whether another model may be cheaper for the same input, output, and request volume.
 
-{/* Image placeholder: Token Calculator Estimates */}
 ![Token Calculator Estimates](/img/docs/tc-3.png)
 
 ## Best Practices

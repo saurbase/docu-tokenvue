@@ -1,21 +1,20 @@
 ---
 title: Getting Started
-description: Learn what TokenVue is, why it exists, and how it helps organizations manage AI infrastructure across multiple providers and models.
+description: Configure a workspace, connect a provider, create a virtual key, and send your first request through TokenVue.
 sidebar_position: 2
 ---
-
 
 # Getting Started with TokenVue
 
 TokenVue helps you manage LLM access through secure virtual keys, provider configuration, guardrails, routing, and usage monitoring.
 
-This guide walks you through the basic setup.
+This guide walks through the basic setup path.
 
-## 1. Sign in to TokenVue
+## 1. Sign In to TokenVue
 
 Open TokenVue and sign in to your workspace.
 
-After login, you will land inside the TokenVue dashboard, where you can view usage, active keys, provider activity, guardrail events, and workspace-level insights.
+After login, you land in the TokenVue dashboard, where you can review usage, active keys, provider activity, guardrail events, and workspace-level insights.
 
 ## 2. Create or Select a Workspace
 
@@ -34,7 +33,7 @@ Select an existing workspace or create a new one before configuring your gateway
 
 ## 3. Configure an LLM Provider
 
-Go to **LLM Config** and add the provider you want TokenVue to route requests to.
+Go to **LLM Config** and add the provider TokenVue should route requests to.
 
 You can configure details such as:
 
@@ -62,7 +61,7 @@ Virtual keys let you control:
 - Service ownership
 - Usage tracking
 
-After creating a key, TokenVue will generate an OpenAI-compatible API key.
+After creating a key, TokenVue generates an OpenAI-compatible API key for your application.
 
 ## 5. Connect Your Application
 
@@ -81,15 +80,17 @@ curl -X POST "https://your-tokenvue-domain.com/v1/chat/completions" \
       }
     ]
   }'
+```
 
-  ```
+For local development, the base URL may look like this:
 
-  For local development, the base URL may look like this:
-
+```txt
 http://localhost:3000/v1
+```
 
 ## 6. Enable Guardrails
-Go to Guardrails to manage workspace-level protections.
+
+Go to **Guardrails** to manage workspace-level protections.
 
 TokenVue supports guardrails such as:
 
@@ -98,10 +99,12 @@ TokenVue supports guardrails such as:
 - Toxicity filtering
 - Prompt injection detection
 - Keyword blocking
+
 These guardrails help protect your workspace before requests are sent to an LLM provider.
 
 ## 7. Review Logs and Insights
-After traffic starts flowing through TokenVue, use Audit Logs, Breaches, and Insights to review activity.
+
+After traffic starts flowing through TokenVue, use **Logs**, **Breaches**, and **Insights** to review activity.
 
 You can monitor:
 
@@ -113,13 +116,14 @@ You can monitor:
 - Failed requests
 - Security-related events
 
-Next Steps
-Once your first virtual key is working, you can continue by:
+## Next Steps
 
-Adding more provider configurations
-Creating separate keys for different services
-Setting token or budget limits
-Enabling Auto Router
-Inviting team members
-Reviewing usage and optimization insights
+Once your first virtual key is working, continue with:
+
+- [LLM Config](./tokenvue/llm-config)
+- [Virtual Key](./tokenvue/virtual-key)
+- [Guardrails](./tokenvue/guardrail)
+- [Auto Router](./tokenvue/auto-router)
+- [Insights](./connect/insights)
+
 TokenVue is now ready to manage and monitor your LLM gateway traffic.

@@ -3,6 +3,6 @@
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Logs and Breaches analysis and logging."
+    "description": "Inspect request logs, failed traffic, policy triggers, and breach groups."
   }
 }

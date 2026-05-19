@@ -1,8 +1,8 @@
 {
-  "label": "Connect",
+  "label": "Operations",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Connect insight and billing details."
+    "description": "Review usage, cost, model activity, and workspace plan status."
   }
 }

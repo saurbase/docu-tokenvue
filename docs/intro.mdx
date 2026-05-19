@@ -1,117 +1,97 @@
 ---
-
 title: What is TokenVue?
-description: Learn what TokenVue is, why it exists, and how it helps organizations manage AI infrastructure across multiple providers and models.
+description: TokenVue is an AI gateway control plane for managing provider access, virtual keys, guardrails, routing, and usage visibility.
 sidebar_position: 1
--------------------
+---
 
 # What is TokenVue?
 
-TokenVue is an AI Gateway and Infrastructure Control Platform that helps developers and organizations securely manage, route, monitor, and optimize AI traffic across multiple Large Language Model (LLM) providers and environments.
+TokenVue is an AI gateway and infrastructure control plane that helps teams securely manage, route, monitor, and optimize LLM traffic across providers and environments.
 
-It acts as a unified control layer between applications and AI providers such as OpenAI, Anthropic, Gemini, DeepSeek, and open-source/self-hosted models.
-
----
+It sits between applications and AI providers such as OpenAI, Anthropic, Gemini, DeepSeek, and OpenAI-compatible self-hosted models.
 
 ## Why TokenVue Exists
 
-Modern AI applications are becoming increasingly complex.
+Modern AI applications often rely on multiple providers, model families, environments, and routing rules. Without a control layer, teams usually end up spreading provider keys, limits, logs, and failover logic across application code and operations runbooks.
 
-Teams often rely on:
+That creates problems around:
 
-* Multiple AI providers
-* Different LLM models
-* Open-source inference servers
-* Hybrid AI infrastructure
-* Custom routing logic
-* Manual failover systems
+- Reliability
+- Security
+- Observability
+- Governance
+- Cost optimization
+- Vendor lock-in
 
-This creates major challenges around:
-
-* Reliability
-* Security
-* Observability
-* Governance
-* Cost optimization
-* Vendor lock-in
-
-TokenVue simplifies this complexity by providing one centralized platform to control and orchestrate AI traffic at production scale.
-
----
+TokenVue centralizes those controls so teams can operate LLM traffic consistently at production scale.
 
 ## Core Capabilities
 
-### Virtual API Keys
+### Virtual Keys
 
-Create secure virtual keys with:
+Virtual Keys are application-facing API keys that route requests through TokenVue instead of exposing provider credentials directly.
 
-* Budget controls
-* Usage tracking
-* Model permissions
-* Team-level governance
-* Request monitoring
+Use Virtual Keys to manage:
 
----
+- Service ownership
+- Provider and model access
+- Daily, monthly, token, or request limits
+- Guardrail behavior
+- Usage tracking and request monitoring
 
-### Multi-LLM Routing
+### LLM Config
 
-Route requests across:
+LLM Config stores provider-facing setup inside TokenVue.
 
-* OpenAI
-* Anthropic
-* Gemini
-* DeepSeek
-* Ollama
-* vLLM
-* Self-hosted LLMs
+Use LLM Config to define:
 
-using one unified API layer.
-
----
+- Provider name
+- Provider API key
+- Base URL for OpenAI-compatible providers
+- Model name
+- Budget mode
+- Token or request limits
 
 ### Auto Router
 
-Automatically route traffic based on:
+Auto Router applies routing policy when traffic should move away from a primary provider or model.
 
-* Budget usage
-* Latency
-* Provider health
-* GPU capacity
-* Error rates
-* Region availability
+Routing decisions can use signals such as:
 
----
+- Budget usage
+- Latency
+- Provider health
+- Error rates
+- Quota limits
+- Region or capacity requirements
 
-### AI Guardrails & Security
+### Guardrails
 
-Protect AI workloads with:
+Guardrails run before requests are forwarded to providers.
 
-* PII redaction
-* Prompt injection protection
-* Toxicity filtering
-* Audit logs
-* Policy enforcement
+TokenVue supports controls such as:
 
----
+- Hard budget caps
+- PII scrubbing
+- Toxicity filtering
+- Prompt injection detection
+- Keyword blocking
 
-### Analytics & Observability
+### Insights, Logs, and Breaches
 
-Monitor:
+TokenVue records gateway activity so teams can review:
 
-* Token usage
-* AI spend
-* Latency
-* Provider performance
-* Routing activity
-* Security events
-
-in real time.
-
----
+- Token usage
+- Estimated spend
+- Provider latency
+- Model routing behavior
+- Request status
+- Guardrail blocks
+- Failed or suspicious traffic
 
 ## OpenAI-Compatible API
 
-TokenVue provides an OpenAI-compatible API layer, allowing developers to use existing OpenAI SDKs and workflows with minimal code changes.
+TokenVue provides an OpenAI-compatible API layer, so existing OpenAI SDK workflows can use TokenVue with minimal code changes.
 
 ```ts
 import OpenAI from "openai";
@@ -122,32 +102,29 @@ const client = new OpenAI({
 });
 ```
 
----
+For local development, your gateway base URL may be:
+
+```txt
+http://localhost:3000/v1
+```
 
 ## Built for Production AI
 
 TokenVue is designed for:
 
-* AI startups
-* SaaS applications
-* Enterprise AI platforms
-* AI agents & copilots
-* Internal AI infrastructure teams
-* Hybrid AI deployments
+- AI startups
+- SaaS applications
+- Enterprise AI platforms
+- AI agents and copilots
+- Internal AI infrastructure teams
+- Hybrid AI deployments
 
-Whether you're building customer-facing AI products or internal AI systems, TokenVue provides the infrastructure layer needed to operate AI securely and reliably at scale.
-
----
-
-## Vision
-
-TokenVue aims to become the control plane for production AI infrastructure — enabling organizations to securely orchestrate AI traffic across every provider, model, and environment from one unified platform.
-
----
+Whether you are building customer-facing AI products or internal AI systems, TokenVue provides the infrastructure layer needed to operate LLM access securely and reliably.
 
 ## Next Steps
 
-* [Getting Started](./getting-started)
-* [Virtual API Keys](./virtual-keys/overview)
-* [Auto Router](./auto-router/overview)
-* [API Reference](./api-reference/overview)
+- [Getting Started](./getting-started)
+- [LLM Config](./tokenvue/llm-config)
+- [Virtual Key](./tokenvue/virtual-key)
+- [Auto Router](./tokenvue/auto-router)
+- [Insights](./connect/insights)

@@ -1,11 +1,82 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
+  background: var(--ifm-color-emphasis-100);
+  padding: 3.5rem 0;
   width: 100%;
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+.sectionHeader {
+  max-width: 760px;
+  margin-bottom: 1.5rem;
+}
+
+.sectionHeader p {
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0.5rem 0 0;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.featureCard {
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  color: var(--ifm-font-color-base);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: hidden;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.featureCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--tokenvue-shadow);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.featureImage {
+  aspect-ratio: 16 / 10;
+  background: var(--tokenvue-panel-bg);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  object-fit: cover;
+  object-position: top left;
+  width: 100%;
+}
+
+.featureBody {
+  padding: 1rem;
+}
+
+.featureBody h3 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.featureBody p {
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .featureGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .featureGrid {
+    grid-template-columns: 1fr;
+  }
 }

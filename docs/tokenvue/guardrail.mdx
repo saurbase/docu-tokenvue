@@ -1,18 +1,15 @@
 ---
-title: Guaradrail
+title: Guardrails
+description: Configure workspace-level and key-level protections that run before LLM requests reach providers.
 sidebar_position: 3
-
 ---
-
-
 
 # Guardrails
 
 Guardrails in TokenVue help control what requests are allowed to reach an LLM provider.
 
-They run as part of the TokenVue gateway flow, before a request is forwarded to the configured model. This gives teams a central place to enforce safety, privacy, budget, and policy rules across workspace traffic.
+They run as part of the TokenVue gateway flow before a request is forwarded to the configured model. This gives teams a central place to enforce safety, privacy, budget, and policy rules across workspace traffic.
 
-{/* Image placeholder: Guardrails overview */}
 ![Guardrails Overview](/img/docs/gd-1.png)
 
 ## What Guardrails Do
@@ -52,9 +49,6 @@ If a request violates an enabled guardrail, TokenVue can block it before it reac
 | Injection Detection | Detects prompt injection attempts that try to bypass instructions or expose hidden context. |
 | Keywords | Blocks requests containing configured words or phrases. |
 
-
-
-
 ## Workspace-Level Guardrails
 
 Guardrails are managed at the workspace level.
@@ -63,7 +57,6 @@ When a guardrail is enabled globally, it becomes part of the default protection 
 
 When a guardrail is disabled globally, it is removed from virtual key enforcement for that workspace.
 
-{/* Image placeholder: Workspace guardrail settings */}
 ![Workspace Guardrails](/img/docs/gd-2.png)
 
 ## Keyword Blocking
@@ -78,7 +71,6 @@ This is useful when your workspace needs to block:
 - Policy-specific keywords
 - Words related to unsupported workflows
 
-{/* Image placeholder: Keyword guardrail settings */}
 ![Keyword Guardrails](/img/docs/gd-3.png)
 
 ## Best Practices
